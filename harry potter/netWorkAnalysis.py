@@ -6,7 +6,6 @@ Created on Mon Nov  6 15:51:15 2017
 @author: zjm
 """
 
-import os, sys
 import codecs
 from nltk.tokenize import word_tokenize
 from collections import defaultdict
@@ -15,11 +14,11 @@ person_counter = defaultdict(int)
 person_per_line = []
 relationships = {}
 
-f = codecs.open('person.txt','r')
+
 namelist = ['Harry', 'Hermione', 'Ron','Sirius','Cho','Colin','Argus','Morfin','Luna','Draco','James','Lily','Fred','George','Ginny','Molly','Oliver','Dumbledore','Voldemort','Peeves','Percy','Snape']
 
 
-file_object = codecs.open('HP2.txt','r','utf-8')
+file_object = codecs.open('HP3.txt','r','utf-8')
 
 for line in file_object:
     poss = word_tokenize(line)
@@ -57,8 +56,8 @@ with codecs.open("edge.csv","a+","utf-8") as f:
     f.write("Source,Target,Weight\r\n")
     for name, edges in relationships.items():
         for v,w in edges.items():
-            if w >3:
-                f.write(name+","+ v + "," + str(w) + "\r\n")
+            #if w >3:
+            f.write(name+","+ v + "," + str(w) + "\r\n")
                 
 
 
